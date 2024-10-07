@@ -19,7 +19,7 @@ const Calculation = ({principal, days, compoundFrequency}) => {
             row.push(
                 <tr key={i}>
                     <th>{i}</th>
-                    <th>{profit >= 1000 ? `+${Math.round(profit)}` : `+${Math.round(profit * 100) / 100}`}</th>
+                    <th className='profit'>{profit >= 1000 ? `+${Math.round(profit)}` : `+${Math.round(profit * 100) / 100}`}</th>
                     <th>{Math.round(sumTotal)}</th>
                     <th>{`${Math.round(profitRate * 100) / 100}%`}</th>
                 </tr>
@@ -29,33 +29,6 @@ const Calculation = ({principal, days, compoundFrequency}) => {
         return {sumProfit, sumTotal, row};
         
     }, [principal, days, compoundFrequency]) //값이 변경될 때만 재계산
-
-    // const calculateCompoundInterest  = (principal, days, compoundFrequency) => {
-    //     console.log("Calculation 컴포넌트 실행");
-    //     let row = []; //테이블 태그의 row값을 저장함
-    //     let profit = 0; //수익
-    //     let sumValue = principal; //초기 총액은 원금으로 설정
-    //     const interestRate = compoundFrequency / 100; //이자율을 소수점으로 변환
-
-    //     for(let i = 1; i <= days; i++) {
-    //         profit = sumValue * interestRate; // 수익 계산
-    //         sumValue += profit // 총액 계산
-
-    //         const profitRate = (sumValue - principal) / principal * 100; //수익률 계산
-
-    //         row.push(
-    //             <tr key={i}>
-    //                 <th>{i}</th>
-    //                 <th>{Math.floor(profit)}</th>
-    //                 <th>{Math.floor(sumValue)}</th>
-    //                 <th>{Math.floor(profitRate * 100) / 100}</th>
-    //             </tr>
-    //         ); 
-    //     }
-
-    //     return row
-
-    // }
 
     return (
         <div className='calculation-summary'>
@@ -81,7 +54,6 @@ const Calculation = ({principal, days, compoundFrequency}) => {
                     </thead>
                     <tbody>
                         {row}
-                        {/* {calculateCompoundInterest(principal, days, compoundFrequency)} */}
                     </tbody>
                 </table>
             </div>

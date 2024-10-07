@@ -2,8 +2,8 @@ import React from 'react';
 
 const DefaultMode = ({ values, handleInputChange }) => {
     return (
-        <div className="defaultMode">
-            <h1>기본 복리 계산기</h1>
+        <div className="calculator">
+            <h1 className='mode'>기본 복리 계산기</h1>
             <div className="input-group">
                 <span className='title'>초기 금액(₩)</span>
                 <input

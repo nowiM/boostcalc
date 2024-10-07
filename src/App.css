@@ -16,6 +16,11 @@ body {
   width: 100%;
 }
 
+.App.dark-mode {
+  background-color: #333;
+  color: white;
+}
+
 .nav {
   width: 100%;
   height: 70px;
@@ -25,12 +30,31 @@ body {
 .nav .nav-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: 1000px;
-  padding: 10px 0px;
+  height: 100%;
   margin: 0 auto;
 }
 
-.App .body-container {
+.nav .nav-container .logo {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.nav .nav-container .ModeLogo {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.nav .nav-container .logo:hover,
+.nav .nav-container .ModeLogo:hover {
+  transform: scale(1.1); /* 글씨를 1.1배 확대 */
+  transition: transform 0.2s ease-in-out; /* 확대가 자연스럽게 이루어지도록 설정 */
+}
+
+.body-container {
   max-width: 700px;
   margin: 0 auto;
   padding: 20px;
@@ -76,23 +100,16 @@ body {
   color: white;
   text-decoration-line: none;
 }
-h2 {
-  margin: 10px 0;
+
+.body-container .calculator .mode {
+  margin: 16px 0;
 }
 
-p {
-  margin: 10px 0;
-}
-
-.App .body-container .input-group .title {
+.body-container .calculator .input-group .title {
   font-size: 17px;
   font-weight: 400;
 }
 
-.defaultMode,
-.savingMode {
-  margin-top: 16px;
-}
 input[type="text"] {
   width: 100%;
   padding: 10px;
@@ -124,6 +141,7 @@ button:hover {
 
 .calculation-summary .summary-titles {
   display: flex;
+  flex-wrap: wrap; /* 요소가 화면을 넘길 경우 자동으로 다음 줄로 넘기도록 */
   justify-content: space-around;
   text-align: center;
   padding: 15px 25px;
@@ -145,6 +163,10 @@ button:hover {
   color: #18c118;
 }
 
+.calculation-summary .summary-titles .titleAndValue .value.totalFinalAcount {
+  color: #FF6500;
+}
+
 .calculation-summary .summary-table {
   border-top: 1px solid #ccc;
 }
@@ -156,13 +178,34 @@ table {
 }
 
 table th, table td {
-  padding: 10px;
+  padding: 5px;
   border: 1px solid #ddd;
   text-align: center;
 }
 
-table th {
+/* table th {
   background-color: #f4f4f4;
+} */
+
+table tbody tr .profit {
+  color: #18c118;
+}
+
+table tbody tr .totalFinalAcount{
+  color:#FF6500;
+}
+
+ul {
+  list-style: none;
+  margin-left: 10px;
+}
+
+h2 {
+  margin: 10px 0;
+}
+
+p {
+  margin: 10px 0;
 }
 
 /* 반응형 웹을 위한 미디어 쿼리 */
@@ -184,14 +227,13 @@ table th {
 
   table th, table td {
     font-size: 14px;
-    padding: 8px;
   }
 
   h2 {
     font-size: 18px;
   }
 
-  p {
+  p, ul {
     font-size: 14px;
   }
 }
@@ -220,7 +262,17 @@ table th {
     font-size: 16px;
   }
 
-  p {
+  p, ul {
     font-size: 12px;
   }
+}
+
+@media (max-width: 400px) {
+  .calculation-summary .summary-titles .title {
+    font-size: 15px;
+  }
+
+  .calculation-summary .summary-titles .titleAndValue .value {
+    font-size: 25px;
+  } 
 }

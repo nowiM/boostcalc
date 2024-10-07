@@ -2,8 +2,8 @@ import React from 'react';
 
 const SavingsMode = ({ values, handleInputChange }) => {
     return (
-        <div className="savingMode">
-            <h1>적립식 복리 계산기</h1>
+        <div className="calculator">
+            <h1 className='mode'>적립식 복리 계산기</h1>
             <div className="input-group">
                 <span className='title'>초기 금액(₩)</span>
                 <input
@@ -25,7 +25,7 @@ const SavingsMode = ({ values, handleInputChange }) => {
             </div>
 
             <div className="input-group">
-                <span className='title'>투자 기간</span>
+                <span className='title'>투자 기간(년)</span>
                 <input
                 type="text"
                 name="investment"
@@ -35,7 +35,7 @@ const SavingsMode = ({ values, handleInputChange }) => {
             </div>
 
             <div className="input-group">
-                <span className='title'>이자율 %</span>
+                <span className='title'>이자율(%)</span>
                 <input
                 type="text"
                 name="investmentPeriod"
@@ -44,7 +44,7 @@ const SavingsMode = ({ values, handleInputChange }) => {
                 />
             </div>
 
-            <div className="input-group">
+            {/* <div className="input-group">
                 <span className='title'>복리 기간</span>
                 <select
                 name="frequency"
@@ -57,7 +57,7 @@ const SavingsMode = ({ values, handleInputChange }) => {
                 <option value="12">월복리</option>
                 <option value="365">일복리</option>
                 </select>
-            </div>
+            </div> */}
         </div>
     );
 }

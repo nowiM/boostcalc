@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes, Navigate } from 'react-router-dom';
-import Nav from './components/Nav';
-import Calculation from './components/Calculation';
-import CompoundInterestInfo from './components/CompoundInterestInfo';
-import DefaultMode from './components/DefaultMode';
-import SavingsMode from './components/SavingsMode';
-import SavingsCalculation from './components/SavingsCalculation';
+import Nav from './components/Nav.js';
+import Calculation from './components/Calculation.js';
+import CompoundInterestInfo from './components/CompoundInterestInfo.js';
+import DefaultMode from './components/DefaultMode.js';
+import SavingsMode from './components/SavingsMode.js';
+import SavingsCalculation from './components/SavingsCalculation.js';
 import './App.css';
 
 function App() {
+  
   const [values, setValues] = useState({
     principal: 1000000,
     days: 10,
@@ -26,7 +27,7 @@ function App() {
     month: 100000, // 월 적립 금액
     investment: 3, // 투자기간
     investmentPeriod: 5, // 이자율
-    frequency: 1 // 복리 방식
+    // frequency: 1 // 복리 방식
   });
 
   const [calculatedSavingValues, setcalCulatedSavingValues] = useState({
@@ -34,12 +35,16 @@ function App() {
     calculatedSavingmonth: 100000, // 월 적립 금액
     calculatedSavinginvestment: 3, // 투자기간
     calculatedSavinginvestmentPeriod: 5, // 이자율
-    calculatedSavingfrequency: 1 // 복리 방식
+    // calculatedSavingfrequency: 1 // 복리 방식
   });
 
   const [showCalculation, setShowCalculation] = useState(false);
   
-  const [selectedMode, setSelectedMode] = useState('default'); // 기본 모드로 설정
+  const [selectedMode, setSelectedMode] = useState(window.location.pathname); // 기본 모드로 설정
+
+  useEffect(() => {
+    setSelectedMode(window.location.pathname);
+  }, [window.location.pathname]);
 
   const handleDeFaultCalculate = () => {
     setcalCulatedValues({
@@ -54,10 +59,10 @@ function App() {
     console.log('나 실행됨')
     setcalCulatedSavingValues({
       calculatedSavingprincipal: Number(savingValues.principal), // 시작금액
-      calculatedSavingmonth: Number(savingValues.days), // 월 적립 금액
+      calculatedSavingmonth: Number(savingValues.month), // 월 적립 금액
       calculatedSavinginvestment: Number(savingValues.investment), // 투자기간
       calculatedSavinginvestmentPeriod: Number(savingValues.investmentPeriod), // 이자율
-      calculatedSavingfrequency: Number(savingValues.frequency) // 복리 방식
+      // calculatedSavingfrequency: Number(savingValues.frequency) // 복리 방식
     });
     setShowCalculation(true);  // Calculation 컴포넌트를 표시
   };
@@ -78,22 +83,24 @@ function App() {
     }));
   };
 
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleDarkMode = () => setDarkMode(!darkMode);
   return (
     <Router>
-      <div className="App">
-        <Nav />
+      <div className={`App ${darkMode ? 'dark-mode' : ''}`}>
+        <Nav darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
         <div className="body-container">
           <div className="mode-selector">
             {/* leftLink와 rightLink에 클래스 적용 */}
-            <div className={`leftLink ${selectedMode === 'default' ? 'active' : ''}`}>
-              <Link to="/default" onClick={() => { setShowCalculation(false); setSelectedMode('default') }}>
-                기본 복리
+            <div className={`leftLink ${selectedMode === '/default' ? 'active' : ''}`}>
+              <Link to="/default" onClick={() => { setShowCalculation(false);  setSelectedMode('/default')}}>
+                기본
               </Link>
             </div>
             
-            <div className={`rightLink ${selectedMode === 'saving' ? 'active' : ''}`}>
-              <Link to="/saving" onClick={() => { setShowCalculation(false); setSelectedMode('saving') }}>
-                적립식 복리
+            <div className={`rightLink ${selectedMode === '/saving' ? 'active' : ''}`}>
+              <Link to="/saving" onClick={() => { setShowCalculation(false);  setSelectedMode('/saving')}}>
+                적립식
               </Link>
             </div>
           </div>
@@ -131,7 +138,7 @@ function App() {
                     month={calculatedSavingValues.calculatedSavingmonth}
                     interest={calculatedSavingValues.calculatedSavinginvestment}
                     investmentPeriod={calculatedSavingValues.calculatedSavinginvestmentPeriod}
-                    frequency={calculatedSavingValues.calculatedSavingfrequency}
+                    // frequency={calculatedSavingValues.calculatedSavingfrequency}
                   />
                 )}
               </>
