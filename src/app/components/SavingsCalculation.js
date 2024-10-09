@@ -1,3 +1,4 @@
+'use client';
 import React, {useMemo} from 'react';
 
 const SavingsCalculation = ({ principal, month, interest, investmentPeriod }) => {

@@ -1,9 +1,9 @@
+'use client';
 import React, {useMemo} from 'react';
 
 const Calculation = ({principal, days, compoundFrequency}) => {
     
     const {sumProfit, sumTotal, row} = useMemo(() => {
-        console.log("Calculation 컴포넌트 실행");
         let row = []; //테이블 태그의 row값을 저장함
         let profit = 0; //수익
         let sumTotal = principal; //초기 총액은 원금으로 설정

@@ -8,7 +8,7 @@
 body {
   /* font-family: 'Arial', sans-serif; */
   background-color: white;
-  color: s#ccc;
+  color: black;
   line-height: 1.6;
 }
 
@@ -16,9 +16,9 @@ body {
   width: 100%;
 }
 
-.App.dark-mode {
+.dark-mode {
   background-color: #333;
-  color: white;
+  color: #e6e6e6;
 }
 
 .nav {
@@ -156,7 +156,7 @@ button:hover {
 .calculation-summary .summary-titles .titleAndValue .value {
   display: block;
   font-size: 32px;
-  font-weight: 500;
+  font-weight: 600;
 } 
 
 .calculation-summary .summary-titles .titleAndValue .value.green {
@@ -198,6 +198,10 @@ table tbody tr .totalFinalAcount{
 ul {
   list-style: none;
   margin-left: 10px;
+}
+
+.info {
+  padding-top: 50px;
 }
 
 h2 {
