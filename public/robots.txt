@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://boostcalc.com
+
+# Sitemaps
+Sitemap: https://boostcalc.com/sitemap.xml
