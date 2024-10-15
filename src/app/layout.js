@@ -13,6 +13,8 @@ const RootLayout = ({ children }) => {
         <meta name="keywords" content="복리 계산기, 적립식 복리 계산기, 투자 수익률 계산기, 금융 계산기, 주식 복리, 코인 복리, 장기 투자, 예금 계산기, 주식 투자, 코인 투자, 금융 복리, 복리 이자율, 자산 증식, 복리 효과, 미래 가치 계산기" />
         <meta property="og:title" content="복리 계산기 - 간편한 투자 수익 예측 도구 | compound" />
         <meta property="og:description" content="복리 계산기를 통해 예금, 주식, 코인 등의 투자 수익률을 쉽게 계산하고, 미래 수익을 예측하세요. 간편한 인터페이스로 투자 결정을 돕습니다." />
+        <meta name="google-site-verification" content= {process.env.NEXT_PUBLIC_SEARCH_CONSOLE} />
+        <meta name="google-adsense-account" content= {process.env.NEXT_PUBLIC_ADSENS}></meta>
         <title>복리 계산기 - compound</title>
       </head>
       <body>
