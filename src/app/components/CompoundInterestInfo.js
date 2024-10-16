@@ -1,5 +1,7 @@
+import React from 'react';
+
 const CompoundInterestInfo = () => {
-    return(
+    return (
         <div className='info'>
             <h2>📙 1. 복리란 무엇인가?</h2>
             <p>
