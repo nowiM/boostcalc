@@ -1,6 +1,5 @@
 import Nav from "./components/Nav";
 import NavLink from './components/NavLink'
-import CompoundInterestInfo from './components/CompoundInterestInfo'
 import "./globals.css";
 
 const RootLayout = ({ children }) => {
@@ -27,8 +26,6 @@ const RootLayout = ({ children }) => {
           </div>
 
           {children}
-
-          <CompoundInterestInfo />
         </div>
       </body>
     </html>

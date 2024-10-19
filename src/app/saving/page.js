@@ -2,6 +2,7 @@
 import { useState } from "react";
 import SavingsMode from "../components/SavingsMode";
 import SavingsCalculation from "../components/SavingsCalculation";
+import SavingCompoundInfo from '../components/SavingCompoundInfo'
 
 export default function SavingPage() {
     const [savingValues, setSavingValues] = useState({
@@ -50,6 +51,8 @@ export default function SavingPage() {
                 investmentPeriod={calculatedSavingValues.calculatedSavinginvestmentPeriod}
                 />
             )}
+
+            <SavingCompoundInfo />
         </>
     );
 }

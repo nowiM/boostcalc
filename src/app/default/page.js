@@ -2,6 +2,7 @@
 import { useState } from "react";
 import DefaultMode from "../components/DefaultMode";
 import Calculation from "../components/Calculation";
+import CompoundInterestInfo from '../components/DafultCompoundInfo'
 
 export default function DefaultPage() {
     const [values, setValues] = useState({
@@ -46,6 +47,8 @@ export default function DefaultPage() {
                 compoundFrequency={calculatedValues.calculatedCompoundFrequency}
                 />
             )}
+
+            <CompoundInterestInfo />
         </>
     );
 }
