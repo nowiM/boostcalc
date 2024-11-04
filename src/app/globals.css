@@ -115,8 +115,16 @@ body {
   text-decoration-line: none;
 }
 
+.body-container .calculator {
+  height: 370px;
+}
+
 .body-container .calculator .mode {
   margin: 16px 0;
+}
+
+.body-container .calculator .input-group {
+  height: 100px;
 }
 
 .body-container .calculator .input-group .title {
