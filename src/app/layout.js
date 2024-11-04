@@ -6,7 +6,7 @@ const RootLayout = ({ children }) => {
   return (
     <html>
       <head>
-        <link rel="icon" href="/images/logo.svg" />
+        <link rel="icon" href="/images/logo.png" />
         <meta name="description" content="복리 계산기 웹사이트에서 투자에 따른 미래 가치를 예측하고, 적금, 주식, 코인 투자 시 예상 수익을 계산해보세요. 간편한 사용법과 실시간 계산으로 복리 효과를 쉽게 확인할 수 있습니다." />
         <meta name="robots" content="index, follow" />
         <meta name="keywords" content="복리 계산기, 적립식 복리 계산기, 투자 수익률 계산기, 금융 계산기, 주식 복리, 코인 복리, 장기 투자, 예금 계산기, 주식 투자, 코인 투자, 금융 복리, 복리 이자율, 자산 증식, 복리 효과, 미래 가치 계산기" />

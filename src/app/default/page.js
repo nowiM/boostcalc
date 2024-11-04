@@ -1,8 +1,9 @@
 'use client';
 import { useState } from "react";
-import DefaultMode from "../components/DefaultMode";
-import Calculation from "../components/Calculation";
-import CompoundInterestInfo from '../components/DafultCompoundInfo'
+import DefaultMode from "../components/Default/DefaultMode";
+import DefaultSummary from '../components/Default/DefaultSummary'
+import DafaultCalculation from "../components/Default/DafaultCalculation";
+import CompoundInterestInfo from '../components/Default/DafultCompoundInfo'
 
 export default function DefaultPage() {
     const [values, setValues] = useState({
@@ -41,11 +42,15 @@ export default function DefaultPage() {
             <DefaultMode values={values} handleInputChange={handleInputChange} />
             <button onClick={handleDeFaultCalculate}>계산하기</button>
             {showCalculation && (
-                <Calculation
-                principal={calculatedValues.calculatedPrincipal}
-                days={calculatedValues.calculatedDays}
-                compoundFrequency={calculatedValues.calculatedCompoundFrequency}
+                <DafaultCalculation
+                    principal={calculatedValues.calculatedPrincipal}
+                    days={calculatedValues.calculatedDays}
+                    compoundFrequency={calculatedValues.calculatedCompoundFrequency}
                 />
+            )}
+
+            {!showCalculation && (
+                <DefaultSummary />
             )}
 
             <CompoundInterestInfo />

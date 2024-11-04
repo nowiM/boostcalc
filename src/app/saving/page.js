@@ -1,8 +1,9 @@
 'use client';
 import { useState } from "react";
-import SavingsMode from "../components/SavingsMode";
-import SavingsCalculation from "../components/SavingsCalculation";
-import SavingCompoundInfo from '../components/SavingCompoundInfo'
+import SavingsMode from "../components/Saving/SavingsMode";
+import SavingSummary from '../components/Saving/SavingSummary'
+import SavingsCalculation from "../components/Saving/SavingsCalculation";
+import SavingCompoundInfo from '../components/Saving/SavingCompoundInfo'
 
 export default function SavingPage() {
     const [savingValues, setSavingValues] = useState({
@@ -50,6 +51,10 @@ export default function SavingPage() {
                 interest={calculatedSavingValues.calculatedSavinginvestment}
                 investmentPeriod={calculatedSavingValues.calculatedSavinginvestmentPeriod}
                 />
+            )}
+
+            {!showCalculation && (
+                <SavingSummary />
             )}
 
             <SavingCompoundInfo />

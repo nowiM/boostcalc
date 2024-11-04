@@ -24,9 +24,9 @@ const SavingsCalculation = ({ principal, month, interest, investmentPeriod }) =>
             row.push(
                 <tr key={i}>
                     <th>{i}</th>
-                    <th>{savedMoney}</th>
-                    <th className='profit'>{`+${Math.round(profit)}`}</th>
-                    <th className='totalFinalAcount'>{finalAcount}</th>
+                    <th>{savedMoney.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+                    <th className='profit'>{`+${Math.round(profit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</th>
+                    <th className='totalFinalAcount'>{finalAcount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
                 </tr>
             )
             
@@ -44,15 +44,15 @@ const SavingsCalculation = ({ principal, month, interest, investmentPeriod }) =>
             <div className="summary-titles">
                 <div className="titleAndValue">
                     <span className='title'>총 수익</span>
-                    <span className="value green">{`₩${totalProfit}`}</span>
+                    <span className="value green">{`₩${totalProfit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</span>
                 </div>
                 <div className="titleAndValue">
                     <span className='title'>총 투자금</span>
-                    <span className='value'>{`₩${totalAmount}`}</span>
+                    <span className='value'>{`₩${totalAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</span>
                 </div>
                 <div className="titleAndValue">
                     <span className='title'>최종 금액</span>
-                    <span className='value totalFinalAcount'>{`₩${totalFinalAcount}`}</span>
+                    <span className='value totalFinalAcount'>{`₩${totalFinalAcount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</span>
                 </div>
             </div>
             <table>
