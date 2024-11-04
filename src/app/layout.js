@@ -15,6 +15,8 @@ const RootLayout = ({ children }) => {
         <meta name="google-site-verification" content= {process.env.NEXT_PUBLIC_SEARCH_CONSOLE} />
         <meta name="google-adsense-account" content= {process.env.NEXT_PUBLIC_ADSENS}></meta>
         <title>복리 계산기 - compound</title>
+        <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-${process.env.NEXT_PUBLIC_ADSENS_SCRIPT}`}
+      crossorigin="anonymous"></script>
       </head>
       <body>
         <Nav/>
