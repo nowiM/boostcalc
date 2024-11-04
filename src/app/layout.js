@@ -27,6 +27,8 @@ const RootLayout = ({ children }) => {
 
           {children}
         </div>
+
+        <div className="footer">© 2024 boostcalc All right reserved contact : iimerty35@gmail.com © Icons by Icons8</div>
       </body>
     </html>
   );

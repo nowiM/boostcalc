@@ -18,14 +18,18 @@ const Nav = () => {
     return (
         <div className="nav">
             <div className="nav-container">
-                <img className='logo' src="/images/logo.svg" alt="LOGO" />
-                <div className="logoConatiner"></div>
-                <img
-                    className="ModeLogo"
-                    src={darkMode ? "/images/rightMode.svg" : "/images/darkMode.png"}
-                    alt="Mode Logo"
-                    onClick={toggleDarkMode}
-                />
+                <div className="background-container">
+
+                    <img className='logo' src="/images/logo.png" alt="LOGO" />
+                </div>
+                <div className="background-container">
+                    <img
+                        className="ModeLogo"
+                        src={darkMode ? "/images/rightMode.svg" : "/images/darkMode.png"}
+                        alt="Mode Logo"
+                        onClick={toggleDarkMode}
+                    />
+                </div>
             </div>
         </div>
     );

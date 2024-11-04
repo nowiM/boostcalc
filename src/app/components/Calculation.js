@@ -19,8 +19,8 @@ const Calculation = ({principal, days, compoundFrequency}) => {
             row.push(
                 <tr key={i}>
                     <th>{i}</th>
-                    <th className='profit'>{profit >= 1000 ? `+${Math.round(profit)}` : `+${Math.round(profit * 100) / 100}`}</th>
-                    <th>{Math.round(sumTotal)}</th>
+                    <th className='profit'>{profit >= 1000 ? `+${Math.round(profit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : `+${Math.round(profit * 100) / 100}`}</th>
+                    <th>{Math.round(sumTotal).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
                     <th>{`${Math.round(profitRate * 100) / 100}%`}</th>
                 </tr>
             ); 
@@ -35,11 +35,11 @@ const Calculation = ({principal, days, compoundFrequency}) => {
             <div className="summary-titles">
                 <div className="titleAndValue">
                     <span className='title'>총 수익</span>
-                    <span className="value green">{`₩${Math.round(sumProfit)}`}</span>
+                    <span className="value green">{`₩${Math.round(sumProfit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</span>
                 </div>
                 <div className="titleAndValue">
                     <span className='title'>최종 금액</span>
-                    <span className='value'>{`₩${Math.round(sumTotal)}`}</span>
+                    <span className='value'>{`₩${Math.round(sumTotal).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</span>
                 </div>
             </div>
             <div className="summary-table">
