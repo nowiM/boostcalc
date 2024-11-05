@@ -118,6 +118,13 @@ body {
 .body-container .calculator {
   height: 370px;
 }
+.body-container .default.calculator {
+  height: 370px;
+}
+
+.body-container .saving.calculator {
+  height: 470px;
+}
 
 .body-container .calculator .mode {
   margin: 16px 0;
@@ -232,6 +239,10 @@ h2 {
 
 p {
   margin: 10px 0;
+}
+
+.footer .footer-item {
+  display: block;
 }
 
 /* 반응형 웹을 위한 미디어 쿼리 */
