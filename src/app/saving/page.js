@@ -10,24 +10,24 @@ export default function SavingPage() {
         principal: 100000,
         month: 100000,
         investment: 3,
-        investmentPeriod: 5,
+        investmentPeriod: '5%',
     });
 
     const [calculatedSavingValues, setCalculatedSavingValues] = useState({
         calculatedSavingprincipal: 100000,
         calculatedSavingmonth: 100000,
         calculatedSavinginvestment: 3,
-        calculatedSavinginvestmentPeriod: 5,
+        calculatedSavinginvestmentPeriod: '5%',
     });
 
     const [showCalculation, setShowCalculation] = useState(false);
 
     const handleSavingCalculate = () => {
         setCalculatedSavingValues({
-        calculatedSavingprincipal: Number(savingValues.principal),
+        calculatedSavingprincipal: Number(savingValues.principal.replace(/[,]/g, '')),
         calculatedSavingmonth: Number(savingValues.month),
         calculatedSavinginvestment: Number(savingValues.investment),
-        calculatedSavinginvestmentPeriod: Number(savingValues.investmentPeriod),
+        calculatedSavinginvestmentPeriod: Number(savingValues.investmentPeriod.replace(/[,%]/g, '')),
         });
         setShowCalculation(true);
     };
