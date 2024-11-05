@@ -29,7 +29,7 @@ const Calculation = ({principal, days, compoundFrequency}) => {
         return {sumProfit, sumTotal, row};
         
     }, [principal, days, compoundFrequency]) //값이 변경될 때만 재계산
-
+    
     return (
         <div className='calculation-summary'>
             <div className="summary-titles">
