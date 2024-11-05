@@ -7,15 +7,15 @@ import SavingCompoundInfo from '../components/Saving/SavingCompoundInfo'
 
 export default function SavingPage() {
     const [savingValues, setSavingValues] = useState({
-        principal: 100000,
-        month: 100000,
+        principal: '100,000',
+        month: '100,000',
         investment: 3,
         investmentPeriod: '5%',
     });
 
     const [calculatedSavingValues, setCalculatedSavingValues] = useState({
-        calculatedSavingprincipal: 100000,
-        calculatedSavingmonth: 100000,
+        calculatedSavingprincipal: '100,000',
+        calculatedSavingmonth: '100,000',
         calculatedSavinginvestment: 3,
         calculatedSavinginvestmentPeriod: '5%',
     });
@@ -25,7 +25,7 @@ export default function SavingPage() {
     const handleSavingCalculate = () => {
         setCalculatedSavingValues({
         calculatedSavingprincipal: Number(savingValues.principal.replace(/[,]/g, '')),
-        calculatedSavingmonth: Number(savingValues.month),
+        calculatedSavingmonth: Number(savingValues.month.replace(/[,]/g, '')),
         calculatedSavinginvestment: Number(savingValues.investment),
         calculatedSavinginvestmentPeriod: Number(savingValues.investmentPeriod.replace(/[,%]/g, '')),
         });

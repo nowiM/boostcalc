@@ -7,13 +7,13 @@ import CompoundInterestInfo from '../components/Default/DafultCompoundInfo'
 
 export default function DefaultPage() {
     const [values, setValues] = useState({
-        principal: 1000000,
+        principal: '1,000,000',
         days: 10,
         compoundFrequency: '5%',
     });
     
     const [calculatedValues, setCalculatedValues] = useState({
-        calculatedPrincipal: 1000000,
+        calculatedPrincipal: '1,000,000',
         calculatedDays: 10,
         calculatedCompoundFrequency: '5%',
     });
