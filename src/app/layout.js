@@ -29,8 +29,11 @@ const RootLayout = ({ children }) => {
 
           {children}
         </div>
-
-        <div className="footer">© 2024 boostcalc All right reserved contact : iimerty35@gmail.com © Icons by Icons8</div>
+        <div className="footer">
+          <span className="footer-item">© 2024 boostcalc All right reserved</span>
+          <span className="footer-item">✉️ contact : iimerty35@gmail.com</span>
+          <span className="footer-item">© Icons by Icons8</span>
+        </div>
       </body>
     </html>
   );

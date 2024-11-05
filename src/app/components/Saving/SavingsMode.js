@@ -1,14 +1,18 @@
 import React from 'react';
 
 const SavingsMode = ({ values, handleInputChange }) => {
+    // 숫자를 문자열로 변환한 후 세 자리마다 콤마 추가 및 % 추가
+    const formatNumberAndPercent = (num) => `${num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}%`
+
+    // 숫자를 문자열로 변환한 후 세 자리마다 콤마 추가
     const formatNumber = (num) => {
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     };
 
     const handleFormattedInputChange = (e) => {
-        const inputValue = e.target.value.replace(/,/g, ''); // 콤마 제거
+        const inputValue = e.target.value.replace(/[,%]/g, ''); // 콤마 제거
+
         if (/^\d*$/.test(inputValue)) { // 숫자만 허용
-            e.target.value = formatNumber(inputValue); // 입력 필드에 콤마 포함된 값 표시
             handleInputChange({
                 target: {
                     name: e.target.name,
@@ -19,7 +23,7 @@ const SavingsMode = ({ values, handleInputChange }) => {
     };
 
     return (
-        <div className="calculator">
+        <div className="saving calculator">
             <h1 className='mode'>적립식 복리 계산기</h1>
 
             <div className="input-group">
@@ -64,7 +68,7 @@ const SavingsMode = ({ values, handleInputChange }) => {
                 <input
                     type="text"
                     name="investmentPeriod"
-                    value={formatNumber(values.investmentPeriod)}
+                    value={formatNumberAndPercent(values.investmentPeriod)}
                     onChange={handleFormattedInputChange}
                     autoComplete='off'
                     placeholder='%'
