@@ -1,12 +1,33 @@
 import React from 'react';
 
 const SavingsMode = ({ values, handleInputChange }) => {
-    // 숫자를 문자열로 변환한 후 세 자리마다 콤마 추가 및 % 추가
-    const formatNumberAndPercent = (num) => `${num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}%`
-
     // 숫자를 문자열로 변환한 후 세 자리마다 콤마 추가
     const formatNumber = (num) => {
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    };
+
+    // 포커스가 있을 때는 %를 제거하여 숫자만 표시
+    const handleFocus = (e) => {
+        if (e.target.name === "investmentPeriod") {
+            handleInputChange({
+                target: {
+                    name: e.target.name,
+                    value: e.target.value.replace('%', '') // % 제거
+                }
+            });
+        }
+    };
+
+    // 포커스가 사라질 때 %를 추가
+    const handleBlur = (e) => {
+        if (e.target.name === "investmentPeriod") {
+            handleInputChange({
+                target: {
+                    name: e.target.name,
+                    value: formatNumber(e.target.value.replace(/[,%]/g, '')) + "%" // 콤마 추가 후 % 추가
+                }
+            });
+        }
     };
 
     const handleFormattedInputChange = (e) => {
@@ -16,7 +37,7 @@ const SavingsMode = ({ values, handleInputChange }) => {
             handleInputChange({
                 target: {
                     name: e.target.name,
-                    value: inputValue // 상태에 콤마 없는 값 저장
+                    value: formatNumber(inputValue)
                 }
             });
         }
@@ -68,8 +89,10 @@ const SavingsMode = ({ values, handleInputChange }) => {
                 <input
                     type="text"
                     name="investmentPeriod"
-                    value={formatNumberAndPercent(values.investmentPeriod)}
+                    value={values.investmentPeriod}
                     onChange={handleFormattedInputChange}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
                     autoComplete='off'
                     placeholder='%'
                 />

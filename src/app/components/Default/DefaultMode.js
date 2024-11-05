@@ -1,21 +1,39 @@
-import React from 'react';
-
 const DefaultMode = ({ values, handleInputChange }) => {
-    // 숫자를 문자열로 변환한 후 세 자리마다 콤마 추가 및 % 추가
-    const formatNumberAndPercent = (num) => `${num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}%`
-
-    // 숫자를 문자열로 변환한 후 세 자리마다 콤마 추가
+    // 숫자를 세 자리마다 콤마로 포맷팅하는 함수
     const formatNumber = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    
+
+    // 포커스가 있을 때는 %를 제거하여 숫자만 표시
+    const handleFocus = (e) => {
+        if (e.target.name === "compoundFrequency") {
+            handleInputChange({
+                target: {
+                    name: e.target.name,
+                    value: e.target.value.replace('%', '') // % 제거
+                }
+            });
+        }
+    };
+
+    // 포커스가 사라질 때 %를 추가
+    const handleBlur = (e) => {
+        if (e.target.name === "compoundFrequency") {
+            handleInputChange({
+                target: {
+                    name: e.target.name,
+                    value: formatNumber(e.target.value.replace(/[,%]/g, '')) + "%" // 콤마 추가 후 % 추가
+                }
+            });
+        }
+    };
+
     const handleFormattedInputChange = (e) => {
         let inputValue = e.target.value.replace(/[,%]/g, ''); // 콤마와 % 제거
 
         if (/^\d*$/.test(inputValue)) { // 숫자만 허용
-            // 원래 숫자만 포함된 값으로 상태 업데이트
             handleInputChange({
                 target: {
                     name: e.target.name,
-                    value: inputValue
+                    value: formatNumber(inputValue)
                 }
             });
         }
@@ -33,7 +51,7 @@ const DefaultMode = ({ values, handleInputChange }) => {
                     inputMode='decimal'
                     value={formatNumber(values.principal)}
                     onChange={handleFormattedInputChange} 
-                    autoComplete='off' //텍스트 박스에 이전 입력값 안나오게 하는 속성
+                    autoComplete='off'
                     placeholder='₩'
                 />
             </div>
@@ -56,8 +74,10 @@ const DefaultMode = ({ values, handleInputChange }) => {
                 <input
                     type="text"
                     name="compoundFrequency"
-                    value={formatNumberAndPercent(values.compoundFrequency)}
+                    value={values.compoundFrequency}
                     onChange={handleFormattedInputChange}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
                     autoComplete='off'
                     placeholder='%'
                 />

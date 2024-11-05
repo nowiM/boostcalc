@@ -9,22 +9,22 @@ export default function DefaultPage() {
     const [values, setValues] = useState({
         principal: 1000000,
         days: 10,
-        compoundFrequency: 5,
+        compoundFrequency: '5%',
     });
     
     const [calculatedValues, setCalculatedValues] = useState({
         calculatedPrincipal: 1000000,
         calculatedDays: 10,
-        calculatedCompoundFrequency: 5,
+        calculatedCompoundFrequency: '5%',
     });
 
     const [showCalculation, setShowCalculation] = useState(false);
 
     const handleDeFaultCalculate = () => {
         setCalculatedValues({
-        calculatedPrincipal: Number(values.principal),
+        calculatedPrincipal: Number(values.principal.replace(/[,]/g, '')),
         calculatedDays: Number(values.days),
-        calculatedCompoundFrequency: Number(values.compoundFrequency),
+        calculatedCompoundFrequency: Number(values.compoundFrequency.replace(/[,%]/g, '')),
         });
         setShowCalculation(true);
     };
