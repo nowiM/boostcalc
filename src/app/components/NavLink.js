@@ -11,11 +11,11 @@ const NavLink = ({ href, children }) => {
     const isActive = pathname === href;
 
     return (
-        <div className={`${pathname === '/default' ? 'leftLink' : 'rightLink'} ${isActive ? 'active' : ''}`}>
-            <Link href={href}>
+        <Link href={href} className='linkButton'>
+            <div className={`${pathname === '/default' ? 'leftLink' : 'rightLink'} ${isActive ? 'active' : ''}`}>
                 {children}
-            </Link>
-        </div>
+            </div>
+        </Link>
     );
 };
 

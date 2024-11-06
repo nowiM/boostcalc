@@ -53,20 +53,21 @@ const SavingsCalculation = ({ principal, monthlyDeposit, days, compoundFrequency
                     <span className='value totalFinalAcount'>{`₩${Math.floor(sumProfit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</span>
                 </div>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>원금(₩)</th>
-                        <th>수익(₩)</th>
-                        <th>최종금액(₩)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { row }
-                </tbody>
-            </table>
-
+            <div className="summary-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>원금(₩)</th>
+                            <th>수익(₩)</th>
+                            <th>최종금액(₩)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { row }
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

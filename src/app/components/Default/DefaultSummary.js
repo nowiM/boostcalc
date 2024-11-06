@@ -15,10 +15,10 @@ const DefaultSummary = () => {
                 <table>
                     <thead>
                         <tr>
-                            <th>기간</th>
-                            <th>수익(₩)</th>
-                            <th>총액(₩)</th>
-                            <th>수익율</th>
+                            <th className='border-delete'>#</th>
+                            <th className='border-delete'>수익(₩)</th>
+                            <th className='border-delete'>총액(₩)</th>
+                            <th className='border-delete'>수익율</th>
                         </tr>
                     </thead>
                 </table>

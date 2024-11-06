@@ -18,11 +18,11 @@ const Nav = () => {
     return (
         <div className="nav">
             <div className="nav-container">
-                <div className="background-container">
+                <div className={`background-container ${darkMode ? 'dark-mode' : 'initial'}`}>
 
                     <img className='logo' src="/images/logo.png" alt="LOGO" />
                 </div>
-                <div className="background-container">
+                <div className={`background-container ${darkMode ? 'dark-mode' : 'initial'}`}>
                     <img
                         className="ModeLogo"
                         src={darkMode ? "/images/rightMode.svg" : "/images/darkMode.png"}
