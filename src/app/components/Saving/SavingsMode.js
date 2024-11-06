@@ -8,7 +8,7 @@ const SavingsMode = ({ values, handleInputChange }) => {
 
     // 포커스가 있을 때는 %를 제거하여 숫자만 표시
     const handleFocus = (e) => {
-        if (e.target.name === "investmentPeriod") {
+        if (e.target.name === "compoundFrequency") {
             handleInputChange({
                 target: {
                     name: e.target.name,
@@ -20,7 +20,7 @@ const SavingsMode = ({ values, handleInputChange }) => {
 
     // 포커스가 사라질 때 %를 추가
     const handleBlur = (e) => {
-        if (e.target.name === "investmentPeriod") {
+        if (e.target.name === "compoundFrequency") {
             handleInputChange({
                 target: {
                     name: e.target.name,
@@ -63,8 +63,8 @@ const SavingsMode = ({ values, handleInputChange }) => {
                 <span className='title'>월 적립금(₩)</span>
                 <input
                     type="text"
-                    name="month"
-                    value={formatNumber(values.month)}
+                    name="monthlyDeposit"
+                    value={formatNumber(values.monthlyDeposit)}
                     onChange={handleFormattedInputChange} 
                     autoComplete='off' 
                     placeholder='₩'
@@ -72,11 +72,11 @@ const SavingsMode = ({ values, handleInputChange }) => {
             </div>
 
             <div className="input-group">
-                <span className='title'>투자 기간(년)</span>
+                <span className='title'>복리 횟수(₩)</span>
                 <input
                     type="text"
-                    name="investment"
-                    value={formatNumber(values.investment)}
+                    name="days"
+                    value={formatNumber(values.days)}
                     onChange={handleFormattedInputChange}
                     autoComplete='off'
                     maxLength={3}
@@ -85,11 +85,11 @@ const SavingsMode = ({ values, handleInputChange }) => {
             </div>
 
             <div className="input-group">
-                <span className='title'>이자율(%)</span>
+                <span className='title'>수익율(이자율 %)</span>
                 <input
                     type="text"
-                    name="investmentPeriod"
-                    value={values.investmentPeriod}
+                    name="compoundFrequency"
+                    value={values.compoundFrequency}
                     onChange={handleFormattedInputChange}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
@@ -97,21 +97,6 @@ const SavingsMode = ({ values, handleInputChange }) => {
                     placeholder='%'
                 />
             </div>
-
-            {/* <div className="input-group">
-                <span className='title'>복리 기간</span>
-                <select
-                    name="frequency"
-                    value={values.frequency}
-                    onChange={handleInputChange}
-                >
-                    <option value="1">연복리</option>
-                    <option value="2">반기복리</option>
-                    <option value="4">분기복리</option>
-                    <option value="12">월복리</option>
-                    <option value="365">일복리</option>
-                </select>
-            </div> */}
         </div>
     );
 }
