@@ -26,7 +26,7 @@ const SavingsCalculation = ({ principal, monthlyDeposit, days, compoundFrequency
                 <tr key={i}>
                     <th>{i}</th>
                     <th>{Math.round(finalAmount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-                    <th className='profit'>{profit >= 1000 ? `+${Math.round(profit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : `+${Math.round(profit * 100) / 100}`}</th>
+                    <th className='profit'>{profit >= 1000 ? `+${Math.round(profit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : `+${Math.floor(Math.round(profit * 100) / 100)}`}</th>
                     <th className='totalFinalAcount'>{Math.round(sumProfit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
                 </tr>
             )

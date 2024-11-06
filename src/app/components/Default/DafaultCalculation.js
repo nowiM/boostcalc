@@ -24,7 +24,7 @@ const Calculation = ({principal, days, compoundFrequency}) => {
             row.push(
                 <tr key={i}>
                     <th>{i}</th>
-                    <th className='profit'>{profit >= 1000 ? `+${Math.round(profit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : `+${Math.round(profit * 100) / 100}`}</th>
+                    <th className='profit'>{profit >= 1000 ? `+${Math.round(profit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : `+${Math.floor(Math.round(profit * 100) / 100)}`}</th>
                     <th>{Math.round(sumTotal).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
                     <th>{`${Math.round(profitRate * 100) / 100}%`}</th>
                 </tr>
