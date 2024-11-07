@@ -1,5 +1,6 @@
 'use client';
-import { useState } from "react";
+import { useState, useRef } from "react";
+import html2canvas from 'html2canvas';
 import SavingsMode from "../components/Saving/SavingsMode";
 import SavingSummary from '../components/Saving/SavingSummary'
 import SavingsCalculation from "../components/Saving/SavingsCalculation";
@@ -42,25 +43,64 @@ export default function SavingPage() {
         }));
     };
 
+    // 복리 계산 결과 이미지 저장 로직 구현
+    const captureRef = useRef();
+    const excludeRef1 = useRef(); // "계산하기" 버튼을 위한 ref
+    const excludeRef2 = useRef(); // "사진" 버튼을 위한 ref
+
+    const handleCapture = async () => {
+        const element = captureRef.current;
+
+        // 두 버튼을 캡처에서 제외하기 위해 숨김 처리
+        if (excludeRef1.current) excludeRef1.current.style.display = 'none';
+        if (excludeRef2.current) excludeRef2.current.style.display = 'none';
+
+        if (element) {
+            // 캡처 진행
+            const canvas = await html2canvas(element);
+            const dataURL = canvas.toDataURL('image/png');
+
+            // 다운로드 링크 생성
+            const link = document.createElement('a');
+            link.href = dataURL;
+            link.download = 'compound_interest_calculator.png';
+            link.click();
+        }
+
+        // 캡처가 완료된 후 숨겼던 버튼을 다시 표시
+        if (excludeRef1.current) excludeRef1.current.style.display = '';
+        if (excludeRef2.current) excludeRef2.current.style.display = '';
+    };
+
     return (
         <>
-            <SavingsMode values={savingValues} handleInputChange={handleSavingInputChange} />
+            <div className="capture-container" ref={captureRef}>
+                <SavingsMode values={savingValues} handleInputChange={handleSavingInputChange} />
+                
+                <div className="calculate-button-container" ref={excludeRef1}>
+                    <button className='calculate-button' onClick={handleSavingCalculate}>계산하기</button>
+                </div>
 
-            <button onClick={handleSavingCalculate}>계산하기</button>
+                {showCalculation && (
+                    <div className="calculation-result-container">
+                        <SavingsCalculation
+                            principal={calculatedSavingValues.calculatedSavingPrincipal}
+                            monthlyDeposit={calculatedSavingValues.calculatedSavingMonthlyDeposit}
+                            days={calculatedSavingValues.calculatedSavingDays}
+                            compoundFrequency={calculatedSavingValues.calculatedSavingCompoundFrequency}
+                        />
+                        <div className="image-download-button-container" ref={excludeRef2}>
+                            <button className='image-download-button' onClick={handleCapture}>사진</button>
+                        </div>
+                    </div>
+                )}
 
-            {showCalculation && (
-                <SavingsCalculation
-                    principal={calculatedSavingValues.calculatedSavingPrincipal}
-                    monthlyDeposit={calculatedSavingValues.calculatedSavingMonthlyDeposit}
-                    days={calculatedSavingValues.calculatedSavingDays}
-                    compoundFrequency={calculatedSavingValues.calculatedSavingCompoundFrequency}
-                />
-            )}
+                {!showCalculation && (
+                    <SavingSummary />
+                )}
 
-            {!showCalculation && (
-                <SavingSummary />
-            )}
 
+            </div>
             <SavingCompoundInfo />
         </>
     );
