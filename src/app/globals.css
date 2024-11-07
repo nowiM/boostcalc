@@ -160,7 +160,7 @@ input:focus {
   outline: none;
 }
 
-button {
+.calculate-button-container .calculate-button {
   padding: 10px 20px;
   background-color: #FF6500;
   color: white;
@@ -170,7 +170,7 @@ button {
   font-size: 16px;
 }
 
-button:hover {
+.calculate-button-container .calculate-button:hover {
   background-color: #ff812d;
 }
 
@@ -236,6 +236,26 @@ table tbody tr .profit {
 
 table tbody tr .totalFinalAcount{
   color:#FF6500;
+}
+
+.image-download-button-container {
+  display: flex;
+  justify-content: end;
+  margin-top: 12px;
+}
+
+.image-download-button-container .image-download-button {
+  padding: 10px 20px;
+  background-color: #FF6500;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.image-download-button-container .image-download-button:hover {
+  background-color: #ff812d;;
 }
 
 ul {
