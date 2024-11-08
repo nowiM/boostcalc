@@ -41,7 +41,7 @@ const DefaultMode = ({ values, handleInputChange }) => {
 
     return (
         <div className="default calculator">
-            <h1 className='mode'>기본 복리 계산기</h1>
+            <h1 className='mode'>복리 계산기</h1>
             <div className="input-group">
                 <span className='title'>초기 금액(₩)</span>
                 <input
