@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 복리 계산기 웹사이트
 
-## Getting Started
+## 프로젝트 개요
+이 프로젝트는 투자에 따른 미래 가치를 예측하고, 복리 효과를 통해 예상 수익을 계산하는 웹 애플리케이션입니다. 사용자는 단순 복리와 적립식 복리 옵션을 선택하여 투자 계획을 세울 수 있습니다. 웹사이트는 React와 Next.js를 기반으로 구축되었으며, 사용자 경험을 위해 반응형 디자인과 다크 모드를 지원합니다.
 
-First, run the development server:
+## 주요 기능
+### 1. 단순 복리 계산
+- **Default Mode**
+  - 초기 투자금, 기간(일 단위), 복리 주기를 입력받아 총 수익 및 최종 금액을 계산.
+  - 결과는 표 형태로 표시되며, 직관적인 요약 섹션 포함.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 2. 적립식 복리 계산
+- **Saving Mode**
+  - 초기 투자금, 월별 적립금, 기간(일 단위), 복리 주기를 입력받아 누적 수익 및 총 투자 금액을 계산.
+  - 적립식 복리의 특성을 반영한 상세 계산 결과 제공.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. 다크 모드
+- 사용자는 다크 모드를 활성화하거나 비활성화하여 더 나은 가독성을 경험할 수 있음.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 4. 복리에 대한 정보 제공
+- 복리와 적립식 복리에 대한 개념 및 계산 방식 설명.
+- 사용자에게 금융 지식을 제공하여 보다 나은 투자 결정을 지원.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 기술 스택
+- **Front-end**: React, Next.js
+- **Styling**: CSS (글로벌 스타일 적용)
+- **Other Libraries**: html2canvas (결과 저장)
