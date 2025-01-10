@@ -24,7 +24,7 @@ const SavingsMode = ({ values, handleInputChange }) => {
                     type="text"
                     name="monthlyDeposit"
                     value={formatNumber(values.monthlyDeposit)}
-                    onChange={handleFormattedInputChange} 
+                    onChange={(e) => handleFormattedInputChange(e, handleInputChange)} 
                     autoComplete='off' 
                     placeholder='₩'
                 />
@@ -36,7 +36,7 @@ const SavingsMode = ({ values, handleInputChange }) => {
                     type="text"
                     name="days"
                     value={formatNumber(values.days)}
-                    onChange={handleFormattedInputChange}
+                    onChange={(e) => handleFormattedInputChange(e, handleInputChange)}
                     autoComplete='off'
                     maxLength={3}
                     placeholder='0'
@@ -49,9 +49,9 @@ const SavingsMode = ({ values, handleInputChange }) => {
                     type="text"
                     name="compoundFrequency"
                     value={values.compoundFrequency}
-                    onChange={handleFormattedInputChange}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
+                    onChange={(e) => handleFormattedInputChange(e, handleInputChange)}
+                    onFocus={(e) => handleFocus(e, handleInputChange)}
+                    onBlur={(e) => handleBlur(e, handleInputChange)}
                     autoComplete='off'
                     placeholder='%'
                 />
