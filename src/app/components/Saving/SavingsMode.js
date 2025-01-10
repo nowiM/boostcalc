@@ -22,8 +22,8 @@ const SavingsMode = ({ values, handleInputChange }) => {
                 <span className='title'>월 적립금(₩)</span>
                 <input
                     type="text"
-                    name="month"
-                    value={formatNumber(values.month)}
+                    name="monthlyDeposit"
+                    value={formatNumber(values.monthlyDeposit)}
                     onChange={(e) => handleFormattedInputChange(e, handleInputChange)} 
                     autoComplete='off' 
                     placeholder='₩'
@@ -34,8 +34,8 @@ const SavingsMode = ({ values, handleInputChange }) => {
                 <span className='title'>복리 횟수(₩)</span>
                 <input
                     type="text"
-                    name="investment"
-                    value={formatNumber(values.investment)}
+                    name="days"
+                    value={formatNumber(values.days)}
                     onChange={(e) => handleFormattedInputChange(e, handleInputChange)}
                     autoComplete='off'
                     maxLength={3}
@@ -47,8 +47,8 @@ const SavingsMode = ({ values, handleInputChange }) => {
                 <span className='title'>수익율(이자율 %)</span>
                 <input
                     type="text"
-                    name="investmentPeriod"
-                    value={values.investmentPeriod}
+                    name="compoundFrequency"
+                    value={values.compoundFrequency}
                     onChange={(e) => handleFormattedInputChange(e, handleInputChange)}
                     onFocus={(e) => handleFocus(e, handleInputChange)}
                     onBlur={(e) => handleBlur(e, handleInputChange)}
