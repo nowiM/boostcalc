@@ -22,21 +22,21 @@ const SavingsMode = ({ values, handleInputChange }) => {
                 <span className='title'>월 적립금(₩)</span>
                 <input
                     type="text"
-                    name="month"
-                    value={formatNumber(values.month)}
-                    onChange={(e) => handleFormattedInputChange(e, handleInputChange)} 
+                    name="monthlyDeposit"
+                    value={formatNumber(values.monthlyDeposit)}
+                    onChange={handleFormattedInputChange} 
                     autoComplete='off' 
                     placeholder='₩'
                 />
             </div>
 
             <div className="input-group">
-                <span className='title'>투자 기간(년)</span>
+                <span className='title'>복리 횟수(₩)</span>
                 <input
                     type="text"
-                    name="investment"
-                    value={formatNumber(values.investment)}
-                    onChange={(e) => handleFormattedInputChange(e, handleInputChange)}
+                    name="days"
+                    value={formatNumber(values.days)}
+                    onChange={handleFormattedInputChange}
                     autoComplete='off'
                     maxLength={3}
                     placeholder='0'
@@ -44,14 +44,14 @@ const SavingsMode = ({ values, handleInputChange }) => {
             </div>
 
             <div className="input-group">
-                <span className='title'>이자율(%)</span>
+                <span className='title'>수익율(이자율 %)</span>
                 <input
                     type="text"
-                    name="investmentPeriod"
-                    value={values.investmentPeriod}
-                    onChange={(e) => handleFormattedInputChange(e, handleInputChange)}
-                    onFocus={(e) => handleFocus(e, handleInputChange)}
-                    onBlur={(e) => handleBlur(e, handleInputChange)}
+                    name="compoundFrequency"
+                    value={values.compoundFrequency}
+                    onChange={handleFormattedInputChange}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
                     autoComplete='off'
                     placeholder='%'
                 />

@@ -6,16 +6,18 @@ import DafaultCalculation from "../components/Default/DafaultCalculation";
 import CompoundInterestInfo from '../components/Default/DafultCompoundInfo'
 
 export default function DefaultPage() {
+    // 입력값들을 저장한다.
     const [values, setValues] = useState({
-        principal: 1000000,
-        days: 10,
-        compoundFrequency: '5%',
+        principal: '1,000,000', // 초기 금액
+        days: 10, // 복리 횟수
+        compoundFrequency: '5%', // 수익율(이자율)
     });
     
+    // DafaultCalculation 컴포넌트에 입력값들을 최종적으로 넘겨지는 값들을 저장한다.
     const [calculatedValues, setCalculatedValues] = useState({
-        calculatedPrincipal: 1000000,
-        calculatedDays: 10,
-        calculatedCompoundFrequency: '5%',
+        calculatedPrincipal: '1,000,000', // 초기 금액
+        calculatedDays: 10, // 복리 횟수
+        calculatedCompoundFrequency: '5%', // 수익율(이자율)
     });
 
     const [showCalculation, setShowCalculation] = useState(false);
