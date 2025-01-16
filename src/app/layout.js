@@ -4,11 +4,11 @@ import "./globals.css";
 
 const RootLayout = ({ children }) => {
   const themeScript = `
-    (function() {
-        const theme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', theme);
-    })();
-  `;
+  (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+  })();
+`;
   return (
     <html>
       <head>
@@ -22,7 +22,7 @@ const RootLayout = ({ children }) => {
         <meta name="google-adsense-account" content= {process.env.NEXT_PUBLIC_ADSENS}></meta>
         <title>복리 계산기 - compound</title>
         <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-${process.env.NEXT_PUBLIC_ADSENS_SCRIPT}`}
-        crossorigin="anonymous"></script>
+        crossOrigin="anonymous"></script>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
