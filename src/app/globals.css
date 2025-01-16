@@ -5,20 +5,24 @@
   font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Nanum Gothic', sans-serif;
 }
 
-body {
+html[data-theme="dark"] {
+  background-color: #333;
+  color: #e6e6e6;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+html {
   background-color: white;
   color: black;
   line-height: 1.6;
+  transition: background-color 0.5s, color 0.5s;
 }
+
 
 .App {
   width: 100%;
 }
 
-.dark-mode {
-  background-color: #333;
-  color: #e6e6e6;
-}
 
 .nav {
   width: 100%;
