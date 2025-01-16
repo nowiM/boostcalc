@@ -3,8 +3,14 @@ import NavLink from './components/NavLink'
 import "./globals.css";
 
 const RootLayout = ({ children }) => {
+  const themeScript = `
+    (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    })();
+  `;
   return (
-    <html lang='en'>
+    <html>
       <head>
         <link rel="icon" href="/images/logo.png" />
         <meta name="description" content="복리 계산기 웹사이트에서 투자에 따른 미래 가치를 예측하고, 적금, 주식, 코인 투자 시 예상 수익을 계산해보세요. 간편한 사용법과 실시간 계산으로 복리 효과를 쉽게 확인할 수 있습니다." />
@@ -15,6 +21,9 @@ const RootLayout = ({ children }) => {
         <meta name="google-site-verification" content= {process.env.NEXT_PUBLIC_SEARCH_CONSOLE} />
         <meta name="google-adsense-account" content= {process.env.NEXT_PUBLIC_ADSENS}></meta>
         <title>복리 계산기 - compound</title>
+        <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-${process.env.NEXT_PUBLIC_ADSENS_SCRIPT}`}
+        crossorigin="anonymous"></script>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
         <Nav/>
