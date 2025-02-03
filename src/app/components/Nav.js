@@ -19,11 +19,6 @@ const Nav = () => {
         document.documentElement.dataset.theme = newTheme;
     };
 
-    // 초기 렌더링 동안 null 상태를 처리하여 올바른 이미지 렌더링 보장
-    if (darkMode === null) {
-        return null; // 초기 렌더링 동안 아무것도 렌더링하지 않음
-    }
-
     return (
         <div className="nav">
             <div className="nav-container">
@@ -33,7 +28,7 @@ const Nav = () => {
                 <div className={`background-container ${darkMode === 'dark' ? 'dark-mode' : 'initial'}`}>
                     <img
                         className="ModeLogo"
-                        src={darkMode === 'dark' ? "/images/rightMode.svg" : "/images/darkMode.png"}
+                        src="/images/darkMode.png"
                         alt="Mode Logo"
                         onClick={toggleDarkMode}
                     />
